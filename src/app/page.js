@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { supabase } from '@/lib/supabase';
+import { supabase } from '../lib/supabase';
 import { Phone, PhoneOff, Video, VideoOff, LogIn, UserPlus, LogOut, Copy } from 'lucide-react';
 
 export default function Home() {
