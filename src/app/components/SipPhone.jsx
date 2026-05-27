@@ -23,23 +23,23 @@ export default function SipPhone() {
   useEffect(() => {
     const loadScripts = async () => {
       try {
-        // ১. প্রথমে WebRTC Adapter লোড করা
+        // ১. লোকাল WebRTC Adapter লোড
         const adapterScript = document.createElement('script');
-        adapterScript.src = "https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/8.2.3/adapter.min.js";
+        adapterScript.src = "/adapter.min.js"; // পাবলিক পাথ
         adapterScript.async = true;
         document.body.appendChild(adapterScript);
 
         adapterScript.onload = () => {
-          // ২. অ্যাডাপ্টার লোড হওয়ার পর Janus লোড করা
+          // ২. লোকাল Janus SDK লোড
           const janusScript = document.createElement('script');
-          janusScript.src = "https://janus.conf.meetecho.com/janus.js";
+          janusScript.src = "/janus.js"; // পাবলিক পাথ
           janusScript.async = true;
           document.body.appendChild(janusScript);
 
           janusScript.onload = () => {
             setIsLibraryLoaded(true);
             setCallStatus('Disconnected');
-            console.log("Janus Library successfully loaded into window.");
+            console.log("Janus Library successfully loaded from local public folder.");
           };
         };
       } catch (error) {
